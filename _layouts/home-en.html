@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<div class="home__cover">
+  <div class="home__logo">
+    <img src="/assets/img/logo-black.svg" alt="LungA 2019 logo" style="width:65%;">
+    <p class="logo__tagline" style="text-shadow:0px 0px 5px white;">ART FESTIVAL&emsp;SEYÐISFJÖRÐUR&emsp;15&mdash;22&nbsp;JULY&nbsp;2019</p>
+  </div>
+</div>
+
+{% include navigation.html %}
+
+<section class="home__concert">
+  <div class="concert__dates">
+    <h3 class="concert__title">Concert</h3>
+    <h3 class="concert__date">20.&mdash;21. july</h3>
+    <a class="concert__buy" href="https://www.tix.is/is/event/5706/lunga-2018/" target="_blank">Buy tickets</a>
+  </div>
+  <div class="concert__widget image__widget">
+    <div class="arrow--left">
+      <a href="#">
+        <img src="/assets/img/arrow.svg" alt="arrow left" />
+      </a>
+    </div>
+    <div class="arrow--right">
+      <a href="#">
+        <img src="/assets/img/arrow.svg" alt="arrow right" />
+      </a>
+    </div>
+
+    <div class="images__container">
+      {% for image in page.concert_images %}
+      <img src="{{ image }}" class="photo" alt="Concert image" />
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+{% include workshops_title.html %}
+
+{% include events_title.html %}
+
+
+
+<section class="home__instagram image__widget">
+<h3><a href="https://www.instagram.com/lunga.festival/" target="_blank">@LungA.Festival</a> &emsp; <a href="https://www.instagram.com/tags/lunga" target="_blank">#Lunga2018</a></h3>
+</section>

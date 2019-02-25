@@ -1,0 +1,564 @@
+@import url(normalize.css);
+@import url(fonts.css);
+* {
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased; }
+
+::selection {
+  background: #6d35d8;
+  /* WebKit/Blink Browsers */ }
+
+::-moz-selection {
+  background: #6d35d8;
+  /* Gecko Browsers */ }
+
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  overflow-x: hidden;
+  padding-top: 44px; }
+  @media (min-width: 800px) {
+    body {
+      overflow-x: visible; } }
+
+p {
+  font-family: "Rather", "Arial", sans-serif;
+  font-weight: 600;
+  font-size: 1.5vw; }
+
+a {
+  color: black; }
+
+a:hover {
+  text-shadow: 0px 0px 10px white; }
+
+.header__wrap {
+  z-index: 140;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff; }
+
+.header__link--left, .header__link--right {
+  display: none;
+  padding: 12px;
+  position: absolute; }
+  @media (min-width: 800px) {
+    .header__link--left, .header__link--right {
+      display: block; } }
+  .header__link--left a, .header__link--right a {
+    font-family: "Rather";
+    font-weight: 600;
+    color: #000; }
+
+.header__link--right {
+  right: 0; }
+
+.header__logo {
+  background-color: #fff;
+  background-image: url("/assets/img/logo.svg");
+  background-position: center 10px;
+  background-repeat: no-repeat;
+  height: 44px;
+  max-width: 150px;
+  margin: auto;
+  background-size: auto 30px; }
+  .header__logo a {
+    display: block;
+    width: 100%;
+    height: 100%; }
+
+.header__hamburger {
+  position: fixed;
+  right: 13px;
+  top: 13px;
+  cursor: pointer; }
+  @media (min-width: 800px) {
+    .header__hamburger {
+      display: none; } }
+
+.header__nav--mobile {
+  display: block;
+  background: #fff !important;
+  margin-bottom: 20px; }
+  @media (min-width: 800px) {
+    .header__nav--mobile {
+      display: none; } }
+
+.page-content {
+  margin-bottom: 45px; }
+
+/** HOME **/
+.home__cover {
+  max-height: 646px;
+  display: table;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  user-select: none; }
+
+.home__logo {
+  text-align: center;
+  padding: 20px;
+  display: table-cell;
+  vertical-align: middle;
+  height: 70%; }
+
+.logo__tagline {
+  font-family: "Rather";
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  font-size: 14px;
+  margin-top: 30px;
+  color: black;
+  font-size: 35px; }
+
+/** NAV **/
+@media (min-width: 800px) {
+  .mobile-only {
+    display: none; } }
+.main__nav {
+  background: #bdfc4d;
+  box-shadow: 0 0 5px 5px #bdfc4d;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: none;
+  z-index: 150; }
+  .main__nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .main__nav li {
+    text-align: center;
+    display: table;
+    vertical-align: middle; }
+  @media (min-width: 800px) {
+    .main__nav {
+      display: block;
+      height: 44px;
+      z-index: 150; }
+      .main__nav .mobile-only {
+        display: none; }
+      .main__nav ul {
+        display: table;
+        width: 100%;
+        height: 100%; }
+      .main__nav li {
+        display: table-cell;
+        vertical-align: middle;
+        width: 20%;
+        text-align: center; } }
+
+.nav__item {
+  font-family: "Rather";
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  font-size: 14px;
+  color: black;
+  font-size: 30px;
+  display: block;
+  width: 100vw;
+  margin-top: 30px;
+  text-decoration: none; }
+  @media (min-width: 800px) {
+    .nav__item {
+      display: inline;
+      font-size: 20px;
+      height: auto;
+      text-transform: none;
+      padding: 4px 8px; } }
+  .nav__item:hover {
+    text-decoration: underline; }
+
+@media (min-width: 800px) {
+  .nav__item--boxed {
+    border: 1px solid black; }
+    .nav__item--boxed:hover {
+      text-decoration: none;
+      background: #fff;
+      color: black; } }
+/** HOME INSTAGRAM **/
+.instagram__left, .instagram__right {
+  /* @LungA.Festival: */
+  font-family: "Rather";
+  font-weight: 600;
+  font-size: 30px;
+  display: inline;
+  z-index: 100;
+  color: black;
+  width: auto;
+  position: absolute; }
+  @media (min-width: 800px) {
+    .instagram__left, .instagram__right {
+      font-size: 50px; } }
+  .instagram__left a, .instagram__right a {
+    color: inherit; }
+
+.instagram__left {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  padding-bottom: 50px; }
+
+.instagram__right {
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  padding-top: 50px; }
+
+.home__instagram {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  background: #bdfc4d;
+  box-shadow: 0 0 5px 10px #bdfc4d; }
+  .home__instagram .photo__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    display: table; }
+    .home__instagram .photo__container .photo {
+      width: calc(100% - 40px);
+      padding: 20px;
+      margin: auto;
+      display: table-cell;
+      vertical-align: middle; }
+    @media (min-width: 800px) {
+      .home__instagram .photo__container {
+        width: 80%; }
+        .home__instagram .photo__container .photo {
+          width: auto;
+          height: 300px; } }
+
+/** CONCERT WIDGET **/
+.home__concert {
+  background: #bdfc4d;
+  box-shadow: 0 0 5px 10px #bdfc4d;
+  position: relative;
+  height: 660px; }
+  @media (min-width: 800px) {
+    .home__concert {
+      height: 660px; } }
+
+.concert__widget {
+  width: 100%;
+  height: 300px;
+  position: relative; }
+  @media (min-width: 800px) {
+    .concert__widget {
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: inline-block;
+      width: 50%;
+      height: 600px; } }
+
+.concert__dates {
+  display: block;
+  padding-top: 40px;
+  z-index: 2;
+  width: 100%; }
+  @media (min-width: 800px) {
+    .concert__dates {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: inline-block;
+      width: 50%;
+      padding-top: 0; } }
+
+.concert__title, .concert__buy {
+  font-family: "Rather";
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: underline;
+  font-size: 50px;
+  text-align: center;
+  margin: auto; }
+  @media (min-width: 800px) {
+    .concert__title, .concert__buy {
+      padding: 100px;
+      font-size: 50px; } }
+
+a.concert__buy {
+  display: block;
+  text-align: center;
+  text-decoration: none; }
+
+a.concert__buy:hover {
+  text-decoration: underline; }
+
+.concert__date {
+  font-family: "Rather";
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #FFF;
+  font-size: 50px;
+  text-align: center; }
+  @media (min-width: 800px) {
+    .concert__date {
+      font-size: 60px; } }
+
+.concert__images {
+  display: table-cell;
+  width: 50%;
+  z-index: 3; }
+
+.arrow--left {
+  position: absolute;
+  bottom: 0;
+  top: 48%;
+  left: 20%;
+  margin: auto;
+  z-index: 100; }
+  .arrow--left img {
+    transform: rotate(180deg); }
+
+.arrow--right {
+  position: absolute;
+  bottom: 0;
+  top: 48%;
+  right: 20%;
+  margin: auto;
+  z-index: 100; }
+
+.concert__images {
+  margin: auto;
+  width: 50%;
+  height: 80%;
+  display: block; }
+
+.images__container img {
+  width: 50%;
+  max-height: 500px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  bottom: 0;
+  z-index: 2;
+  opacity: 0; }
+
+.visible {
+  opacity: 1 !important; }
+
+/** WORKSHOPS **/
+.workshops_container {
+  max-width: 935px;
+  margin: auto;
+  padding: 20px;
+  font-family: "Rather";
+  font-weight: 600; }
+  .workshops_container::after {
+    clear: both;
+    content: "";
+    display: block; }
+  .workshops_container h2 {
+    font-size: 30px;
+    text-align: center;
+    color: black; }
+
+.workshops__item {
+  width: calc(100%);
+  float: left;
+  margin-left: 0; }
+  @media (min-width: 800px) {
+    .workshops__item {
+      width: calc(33.3333333333% - 2.6666666667rem);
+      float: left;
+      margin-left: 2rem; } }
+  .workshops__item a {
+    text-decoration: none;
+    color: black; }
+  .workshops__item a:hover {
+    text-decoration: underline; }
+
+.workshop__title {
+  height: 2em;
+  display: block;
+  color: black;
+  text-shadow: 0px 0px 10px white;
+  border: solid 1px black;
+  background-color: white;
+  word-break: break-word; }
+
+.workshop__image {
+  display: block;
+  padding-top: 66%;
+  margin: 30px 0 10px 0;
+  background-size: cover;
+  background-position: center; }
+
+/** TEXT FRAME **/
+.frame__text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100vw;
+  overflow: hidden; }
+  .frame__text .text {
+    font-family: "Rather";
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    font-size: 14px;
+    font-size: 20px;
+    padding: 0.4em;
+    text-transform: uppercase;
+    overflow: hidden;
+    height: 1.1em;
+    line-height: 1.5em;
+    color: #000;
+    text-align: center; }
+    .frame__text .text span {
+      text-decoration: none;
+      padding-left: 4px; }
+
+.frame__text--top {
+  width: 110vw;
+  position: absolute;
+  top: 0; }
+
+.frame__text--right {
+  width: 100vh;
+  /*transform: rotate(90deg);*/
+  z-index: 2; }
+
+.frame__text--bottom {
+  width: 110vw;
+  transform: rotate(180);
+  position: absolute;
+  bottom: 5px; }
+
+.frame__text--left {
+  position: absolute;
+  top: 50%;
+  left: -100vw;
+  width: 100%;
+  height: 20px;
+  background: red;
+  transform: rotate(-90deg);
+  text-align: right; }
+
+h3 {
+  font-family: "Rather";
+  font-weight: 600;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: black;
+  text-shadow: 0px 0px 5px white; }
+
+/** SUBPAGE LAYOUT **/
+.page__container {
+  width: calc(100% - 40px);
+  margin: auto;
+  padding: 20px; }
+  .page__container h1, .page__container h3, .page__container h4, .page__container h5, .page__container h6 {
+    font-family: "Rather";
+    font-weight: 600;
+    text-align: center;
+    word-break: break-word;
+    text-shadow: 0px 0px 10px white;
+    color: black;
+    border: solid 1px black;
+    background-color: white; }
+    @media (min-width: 800px) {
+      .page__container h1, .page__container h3, .page__container h4, .page__container h5, .page__container h6 {
+        margin: 120px 0 55px 0; } }
+  .page__container p {
+    font-family: "Rather";
+    font-weight: 600;
+    width: 100%;
+    font-size: 1.5vw;
+    line-height: 1.8vw;
+    background-color: white; }
+    @media (min-width: 800px) {
+      .page__container p {
+        width: 80%;
+        margin: 0px auto;
+        text-align: left; } }
+  .page__container img {
+    padding: 40px 0; }
+  .page__container h2 {
+    font-family: "Rather";
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: underline;
+    background-color: white; }
+    @media (min-width: 800px) {
+      .page__container h2 {
+        margin: 0px 0 0px 0; } }
+  .page__container h1 {
+    font-size: 70px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 30px; }
+  .page__container img {
+    width: 100%; }
+  @media (min-width: 800px) {
+    .page__container {
+      max-width: 935px;
+      margin: auto; } }
+
+#lines {
+  position: fixed;
+  z-index: -9999999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; }
+  #lines svg {
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+    min-width: 70vh;
+    min-height: 70vw; }
+
+#background {
+  position: fixed;
+  z-index: -999999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; }
+  #background img {
+    width: 150%; }
+
+.paper {
+  font-size: 2.0em;
+  text-align: center; }
+  .paper img {
+    width: 80%;
+    max-width: 400px; }
+
+.text {
+  display: inline-block;
+  margin: 0 24.7px;
+  float: left;
+  transition: all .2s ease-out; }
+
+.orb:hover {
+  transform: scale(1.2);
+  opacity: .5;
+  cursor: pointer; }

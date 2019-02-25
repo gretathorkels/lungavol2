@@ -1,0 +1,711 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+    "normalize.css",
+    "fonts.css",
+      "base",
+      "../neat/neat"
+;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+::selection {
+  background: #6d35d8; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #6d35d8; /* Gecko Browsers */
+}
+
+$grid: (
+  columns: 1,
+  gutter: 2rem,
+);
+
+$grid--tablet-up: (
+  columns: 12,
+  gutter: 2rem,
+  media: "(min-width: 800px)",
+);
+
+$grid--mobile-up: (
+  columns: 12,
+  gutter: 2rem,
+  media: "(min-width:500px) and (max-width:800px)",
+);
+
+$grid--mobile-only: (
+  columns: 12,
+  gutter: 2rem,
+  media: "(max-width:800px)",
+);
+
+$no-gutter: (
+  columns: 1,
+  gutter: 0,
+);
+
+$no-gutter--tablet-up: (
+  columns: 12,
+  gutter: 0,
+    media: "(min-width: 800px)",
+);
+
+@mixin rather {
+  font-family: "Rather";
+  font-weight: normal;
+}
+
+@mixin rather-semi {
+  font-family: "Rather";
+  font-weight: 600;
+}
+
+@mixin rather-block {
+  font-family: "Rather";
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  font-size: 14px;
+}
+
+@mixin cover-photo {
+  background-size: cover;
+  background-position: center;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  overflow-x: hidden;
+  @include grid-media($grid--tablet-up) {
+    overflow-x: visible;
+  }
+  padding-top: 44px;
+}
+
+p {
+  font-family: "Rather", "Arial", sans-serif;
+  font-weight: 600;
+  font-size: 1.5vw;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-shadow: 0px 0px 10px white;
+}
+
+.header__wrap {
+  z-index: 140;
+  position: fixed; 
+  top: 0; left: 0; right: 0;
+  background: #fff;
+}
+
+.header__link--left, .header__link--right {
+  display: none;
+  @include grid-media($grid--tablet-up) {
+    display: block;
+  }
+  a {
+    @include rather-semi;
+    color: #000;
+  }
+  padding: 12px;
+  position: absolute;
+
+}
+
+.header__link--left {
+
+}
+
+.header__link--right {
+  right: 0;
+}
+
+.header__logo {
+  background-color: #fff;
+  background-image: url('/assets/img/logo.svg');
+  background-position: center 10px; 
+  background-repeat: no-repeat;
+  height: 44px;
+  max-width: 150px;
+  margin: auto;
+  background-size: auto 30px;
+  a {
+    display: block;
+    width: 100%; height: 100%;
+  }
+}
+
+.header__hamburger {
+  position: fixed;
+  right: 13px; top: 13px;
+  cursor: pointer;
+  @include grid-media($grid--tablet-up) {
+    display: none;
+  }
+}
+
+.header__nav--mobile {
+  display: block;
+  background: #fff !important;
+  margin-bottom: 20px;
+  @include grid-media($grid--tablet-up) {
+    display: none;
+  }
+}
+
+.page-content {
+  margin-bottom: 45px;
+}
+
+/** HOME **/
+
+.home__cover {
+  max-height: 646px;
+  display: table;
+  width: 100vw;
+  height: 100vh;
+  @include cover-photo;
+  user-select: none;
+
+}
+
+.home__logo {
+  text-align: center;
+  padding: 20px;
+  display: table-cell;
+  vertical-align: middle;
+  height: 70%
+}
+
+.logo__tagline {
+  @include rather-block;
+  margin-top: 30px;
+  color: black;
+  font-size: 35px;
+}
+
+/** NAV **/
+
+@include grid-media($grid--tablet-up) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+.main__nav {
+  //background: linear-gradient(to bottom, rgba(255, 255, 255, 0), greenyellow, greenyellow, greenyellow);
+  background: #bdfc4d;
+  box-shadow: 0 0 5px 5px #bdfc4d;
+  display: block;
+  position: fixed;
+  bottom: 0; 
+  left: 0; 
+  right: 0; 
+  height: 100vh;
+
+  ul {
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+
+  li {
+    text-align: center;
+    display: table;
+    vertical-align: middle;
+  }
+
+  display: none;
+
+  z-index: 150;
+  @include grid-media($grid--tablet-up) {
+    .mobile-only {
+      display: none;
+    }
+
+    display: block;
+    height: 44px;
+    ul {
+      display: table;
+      width: 100%;
+      height: 100%;
+    }
+    li {
+      display: table-cell;
+      vertical-align: middle;
+      width: 20%;
+      text-align: center;
+    }
+
+    z-index: 150;
+  }
+
+}
+
+.nav__item {
+  @include rather-block;
+  color: black;
+  font-size: 30px;
+
+  display: block;
+  width: 100vw;
+  margin-top: 30px;
+
+  @include grid-media($grid--tablet-up) {
+    display: inline;
+    font-size: 20px;
+    height: auto;
+    text-transform: none;
+    padding: 4px 8px;
+  }
+
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@include grid-media($grid--tablet-up) {
+  .nav__item--boxed {
+    border: 1px solid black;
+
+    &:hover {
+      text-decoration: none;
+      background: #fff;
+      color: black;
+    }
+  }
+}
+
+/** HOME INSTAGRAM **/
+
+.instagram__left, .instagram__right {
+  /* @LungA.Festival: */
+  @include rather-semi;
+  font-size: 30px;
+  display: inline;
+  @include grid-media($grid--tablet-up) {
+    font-size: 50px;
+  }
+
+  z-index: 100;
+
+  color: black;
+  a {
+    color: inherit;
+  }
+  width: auto;
+  position: absolute;
+}
+
+.instagram__left {
+  //transform: rotate(-90deg);
+  top: 0; left: 0; right: 0;
+  bottom: 0;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.instagram__right {
+  bottom: 0;
+  right: 0; left: 0;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.home__instagram {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  background: #bdfc4d;
+  box-shadow: 0 0 5px 10px #bdfc4d;
+
+  .photo__container {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 100%;
+    display: table;
+
+    .photo {
+      width: calc(100% - 40px);
+      padding: 20px;
+      margin: auto;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    @include grid-media($grid--tablet-up) {
+      .photo {
+        width: auto;
+        height: 300px;
+      }
+      width: 80%;
+    }
+  }
+}
+
+/** CONCERT WIDGET **/
+.home__concert {
+  background: #bdfc4d;
+  box-shadow: 0 0 5px 10px #bdfc4d;
+  position: relative;
+  height: 660px;
+  @include grid-media($grid--tablet-up) {
+    height: 660px;
+  }
+}
+
+.concert__widget {
+  width: 100%;
+  @include grid-media($grid--tablet-up) {
+    position: absolute; right: 0; top: 0;
+    display: inline-block;
+    width: 50%;
+    height: 600px;
+  }
+  height: 300px;
+  position: relative;
+}
+
+.concert__dates {
+  display: block;
+  padding-top: 40px;
+  z-index: 2;
+  @include grid-media($grid--tablet-up) {
+    position: absolute; left: 0; top: 0;
+    display: inline-block;
+    width: 50%;
+    padding-top: 0;
+  }
+
+  width: 100%;
+}
+
+.concert__text {
+  
+}
+
+.concert__title, .concert__buy {
+  @include rather-semi;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: underline; 
+  font-size: 50px;
+  text-align: center;
+  margin: auto;
+  @include grid-media($grid--tablet-up) {
+    padding: 100px;
+    font-size: 50px;
+  }
+
+}
+
+a.concert__buy {
+   display: block;
+   text-align: center;
+   text-decoration: none;
+ }
+a.concert__buy:hover {
+  text-decoration: underline;
+
+}
+
+
+.concert__date {
+  @include rather-semi;
+  text-transform: uppercase;
+  color: #FFF;
+  font-size: 50px;
+  @include grid-media($grid--tablet-up) {
+    font-size: 60px;
+  }
+
+  text-align: center;
+}
+
+.concert__images {
+  display: table-cell;
+  width: 50%;
+  z-index: 3;
+}
+
+.arrow--left {
+  img {
+    transform: rotate(180deg);
+  }
+  position: absolute;
+  bottom: 0; top: 48%; left: 20%; 
+  margin: auto;
+  z-index: 100;
+}
+
+.arrow--right {
+  position: absolute;
+  bottom: 0; top: 48%; right: 20%; 
+  margin: auto;
+  z-index: 100;
+}
+
+.concert__images {
+  margin: auto;
+  width: 50%;
+  height: 80%;
+  display: block;
+}
+
+.images__container img {
+  width: 50%;
+  max-height: 500px;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 25%; right: 25%; bottom: 0;
+  z-index: 2;
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1 !important;
+}
+
+/** WORKSHOPS **/
+.workshops_container {
+
+  @include grid-container;
+  max-width: 935px;
+  margin: auto;
+  padding: 20px;
+
+  @include rather-semi;
+
+  h2 {
+    font-size: 30px;
+    text-align: center;
+    color: black;
+  }
+}
+
+.workshops__item {
+  @include grid-column(12, $no-gutter--tablet-up);
+  @include grid-media($grid--tablet-up) {
+    @include grid-column(4, $grid--tablet-up);
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.workshop__title {
+  height: 2em;
+  display: block;
+  color: black;
+  text-shadow:0px 0px 10px white;
+  border: solid 1px black;
+  background-color: white;
+  word-break: break-word;
+}
+
+.workshop__image {
+  display: block;
+  padding-top: 66%;
+  margin: 30px 0 10px 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/** TEXT FRAME **/
+
+.frame__text {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  width: 100vw;
+  overflow: hidden;
+  .text {
+    @include rather-block;
+    font-size: 20px;
+    padding: 0.4em;
+    text-transform: uppercase;
+    overflow: hidden;
+    height: 1.1em;
+    line-height: 1.5em;
+    color: #000;
+    text-align: center;
+    span {
+      text-decoration: none;
+      padding-left: 4px;
+    }
+  }
+}
+
+.frame__text--top {
+  width: 110vw;
+  position: absolute;
+  top: 0;
+}
+
+.frame__text--right {
+  width: 100vh;
+  /*transform: rotate(90deg);*/
+  z-index: 2;
+}
+
+.frame__text--bottom {
+  width: 110vw;
+  transform: rotate(180);
+  position: absolute;
+  bottom: 5px;
+}
+
+.frame__text--left {
+  position: absolute;
+  top: 50%;
+  left: -100vw;
+  width: 100%;
+  height: 20px;
+  background: red;
+  transform: rotate(-90deg);
+  text-align: right;
+}
+
+h3 {
+  @include rather-semi;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: black;
+  text-shadow:0px 0px 5px white;
+}
+
+/** SUBPAGE LAYOUT **/
+.page__container {
+  width: calc(100% - 40px);
+  margin: auto;
+  padding: 20px;
+  
+  h1, h3, h4, h5, h6 {
+    @include rather-semi;
+    text-align: center;
+    word-break: break-word;
+    text-shadow: 0px 0px 10px white;
+    color: black;
+    border: solid 1px black;
+    background-color: white;
+    @include grid-media($grid--tablet-up) {
+      margin: 120px 0 55px 0;
+    }
+  }
+
+  p {
+    @include rather-semi;
+    width: 100%;
+    font-size: 1.5vw;
+    line-height: 1.8vw;
+    background-color: white;
+    @include grid-media($grid--tablet-up) {
+      width: 80%;
+      margin: 0px auto;
+      text-align: left;
+    }
+  }
+
+
+  img {
+    padding: 40px 0;
+  }
+
+  h2 {
+    @include rather-semi;
+    @include grid-media($grid--tablet-up) {
+      margin: 0px 0 0px 0;
+    }
+    font-size: 20px;
+    text-decoration: underline;
+    background-color: white;
+  }
+
+  h1 {
+    font-size: 70px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  @include grid-media($grid--tablet-up) {
+    max-width: 935px;
+    margin: auto;
+  }
+}
+
+#lines {
+  position: fixed;
+  z-index: -9999999999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  margin:auto;
+  svg {
+    margin: auto;
+    width: 100vw; 
+    height: 100vh;
+    min-width: 70vh;
+    min-height: 70vw;
+  }
+}
+
+#background {
+  position: fixed;
+  z-index: -999999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  img {
+    width: 150%;
+  }
+}
+
+
+.paper {
+  font-size: 2.0em;
+  text-align: center;
+  img {width: 80%; max-width: 400px;}
+}
+
+
+.text {
+  display: inline-block;
+  margin: 0 24.7px;
+  float: left;
+  transition: all .2s ease-out;
+}
+
+.orb:hover {
+  transform: scale(1.2);
+  opacity: .5;
+  cursor: pointer;
+}
+
+
